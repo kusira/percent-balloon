@@ -2,7 +2,10 @@ import React from 'react'
 
 const Chrom = () => {
   return (
-    <div>chrom desu!</div>
+    <div>
+        chrom desu!
+        <p className="mb-2 border-collapse p-4 text-xl text-[#ff0054]">testa</p>
+    </div>
   )
 }
 
