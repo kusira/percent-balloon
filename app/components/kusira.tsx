@@ -2,7 +2,7 @@ import React from "react"
 
 const Kusira = () => {
 	return (
-    <div>kusira Componentです</div>
+    <div className="mb-2 bg-yellow-100 text-xl text-red-600">kusira Componentです</div>
 	)
 }
 
