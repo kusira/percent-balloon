@@ -1,7 +1,4 @@
 import Image from "next/image";
-import Kusira from "./components/kusira";
-import Gakki from "./components/gakki";
-import Chrom from "./components/chrom";
 
 export default function Home() {
   return (
@@ -14,23 +11,15 @@ export default function Home() {
 
         {/* メインコンテンツ */}
         <main className="mt-8 px-8 text-center">
-          {/* ようこそメッセージ */}
-          <h2 className="text-3xl font-bold mb-4">ようこそ！</h2>
+          {/* msg */}
+          <h2 className="text-5xl font-bold mb-4">Congratulations!!</h2>
 
-          {/* 説明文 */}
-          <p className="text-lg text-gray-700 mb-8">
-            これはパーセントバルーンをhogehoge...(説明)
-          </p>
-          <Kusira />
-          <Gakki />
-          <Chrom />
-
-          {/* ゲームスタートリンク */}
+          {/* game-end-link */}
           <a
-            href="/end"
+            href="/hoge"
             className="inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600"
           >
-          ゲームスタート
+          Exit
           </a>
         </main>
 
