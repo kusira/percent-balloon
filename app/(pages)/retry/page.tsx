@@ -1,3 +1,4 @@
+import Footer from "@/app/components/footer";
 import Header from "@/app/components/header";
 import Image from "next/image";
 
@@ -6,12 +7,12 @@ export default function Home() {
     <div>
       <div className="bg-[#e8f2f7] flex flex-col items-center justify-center">
         {/* ヘッダー */}
-        <Header />
+				<Header />
 
         {/* メインコンテンツ */}
         <main className="mt-8 px-8 text-center">
           {/* msg */}
-          <h2 className="text-5xl font-bold mb-4">Congratulations!!!</h2>
+          <h2 className="text-5xl font-bold mb-4">Never give up!!</h2>
 
           {/* game-end-link */}
           <a
@@ -24,12 +25,7 @@ export default function Home() {
         </main>
 
         {/* フッター */}
-        <footer className="mt-12 w-full text-center text-gray-600 border-t">
-          <hr className="border-gray-500"></hr>
-          <p className="py-3">
-            © 2024 PiedPiper-奪還鯖缶. All Rights Reserved.
-          </p>
-        </footer>
+				<Footer />
       </div>
     </div>
     

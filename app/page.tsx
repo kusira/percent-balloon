@@ -1,19 +1,15 @@
 import Image from "next/image";
-import Kusira from "./components/kusira";
-import Gakki from "./components/gakki";
-import Chrom from "./components/chrom";
 import Footer from "./components/footer";
 import Header from "./components/header";
 
 export default function Home() {
   return (
-    <div>
-      <div className="bg-[#e8f2f7] flex flex-col items-center justify-center">
-        {/* ヘッダー */}
-        <Header />
-
+    <div>        
+      {/* ヘッダー */}
+      <Header />
+      <div className="flex flex-col min-h-screen bg-[#e8f2f7]">
         {/* メインコンテンツ */}
-        <main className="mt-8 px-8 text-center">
+        <main className="flex-grow flex flex-col items-center mt-10 text-center">
           {/* ようこそメッセージ */}
           <h2 className="text-3xl font-bold mb-4">ようこそ！</h2>
 
@@ -21,23 +17,18 @@ export default function Home() {
           <p className="text-lg text-gray-700 mb-8">
             これはパーセントバルーンをhogehoge...(説明)
           </p>
-          <Kusira />
-          <Gakki />
-          <Chrom />
 
           {/* ゲームスタートリンク */}
           <a
-            href="/end"
+            href="/stage"
             className="inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600"
           >
           ゲームスタート
           </a>
         </main>
-
-        {/* フッター */}
-        <Footer />
-        
       </div>
+      {/* フッター */}
+      <Footer />
     </div>
     
   );
