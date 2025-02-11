@@ -4,6 +4,8 @@ import Footer from "@/app/components/footer";
 import Header from "@/app/components/header";
 import { isCryptoKey } from "util/types";
 import { useState } from "react";
+import React from "react";
+import problem_dict from "@/app/components/questions";
 
 export default function Home() {
   
@@ -20,6 +22,20 @@ export default function Home() {
             <div className="border-black border-2">
                 fuga
             </div>
+            {/* 問題文 */}
+            <p>問題</p>
+            <ul>
+                {(() => {
+                  const randomIndex = Math.floor(Math.random() * problem_dict.length);
+                  const problem = problem_dict[randomIndex];
+                    return (
+                    <li key={problem.id}>
+                      {problem.question}
+                      (答え: {problem.answer}%)
+                    </li>
+                    );
+                })()}
+              </ul>
             {/* 解答欄 */}
             <div className="flex my-2">
              <input type="range"

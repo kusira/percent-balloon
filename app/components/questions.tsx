@@ -1,5 +1,55 @@
-import React, { SetStateAction } from "react";
-import internal from "stream";
+
+const problem_dict = [
+  {
+      id: 0,
+      question: "たけのこ派の比率",
+      answer: 60
+  },
+  {
+      id: 1,
+      question: "スマホのスクリーンタイムが8時間以上の人の比率",
+      answer: 30
+  }
+]
+
+const probrem_log = [
+  {
+      num_of_question: 1,
+      id: null,
+      user_ans: null,
+      ans_diff: null,
+  },
+  {
+      num_of_question: 2,
+      id: null,
+      user_ans: null,
+      ans_diff: null,
+  },
+  {
+      num_of_question: 3,
+      id: null,
+      user_ans: null,
+      ans_diff: null,
+  },
+  {
+      num_of_question: 4,
+      id: null,
+      user_ans: null,
+      ans_diff: null,
+  },
+  {
+      num_of_question: 5,
+      id: null,
+      user_ans: null,
+      ans_diff: null,
+  },
+]
+
+export default problem_dict; probrem_log;
+
+/*
+import React, { useState } from "react";
+import Questions from "./Questions";
 
 // Props の型定義
 interface QuestionProps {
@@ -11,31 +61,6 @@ interface QuestionProps {
   title: string;
   setTitle: React.Dispatch<SetStateAction<string>>;
 }
-
-const Questions = ({ questions, title, setTitle }: QuestionProps) => {
-  return (
-    <div>
-      <h1>{title}</h1>
-      <ul>
-        {/* 問題一覧の表示 */}
-        {questions.map((q, index) => (
-          <li key={index}>
-            <p>問題: {q.problem}</p>
-            <p>正答: {q.correctAnswer}</p>
-            <p>回答: {q.userAnswer}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export default Questions;
-
-
-/*
-import React, { useState } from "react";
-import Questions from "./Questions";
 
 const App = () => {
   // タイトルの状態管理
