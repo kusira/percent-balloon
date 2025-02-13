@@ -7,7 +7,15 @@ import { useState } from "react";
 import React from "react";
 import problem_dict from "@/app/components/questions";
 
-export default function Home() {
+interface Problem {
+  id: number;
+  question: string;
+  answer: number;
+}
+
+const problems: Problem[] = problem_dict;
+
+export default function Home({ onNextQuiz }: { onNextQuiz: (data: { id: number; question: string; value: number }) => void }) {
   
   const [value, setValue] = useState<number>(50);
 
@@ -29,7 +37,8 @@ export default function Home() {
 
   const nextQuiz = () => {
     if (quizNum < 5) {
-      const currentProblem = problem_dict[quizNum]; // 現在の問題を取得
+      const currentProblem = problems[quizNum]; // 現在の問題を取得
+      onNextQuiz({ id: currentProblem.id, question: currentProblem.question, value }); // 親にデータを渡す
       setQuizNum(quizNum + 1);
     }
 
@@ -51,7 +60,7 @@ export default function Home() {
             <p>問題!</p>
             <ul>
                 {(() => {
-                  const problem = problem_dict[quizNum];
+                  const problem = problems[quizNum];
                     return (
                     <li key={problem.id}>
                       {problem.question}
@@ -72,7 +81,7 @@ export default function Home() {
               <div className="">{value}</div>
               <button 
               className="inline-block ml-8 text-white px-3 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg"
-              onClick={() => nextQuiz()}
+              onClick={nextQuiz}
               >
               決定
               </button>
