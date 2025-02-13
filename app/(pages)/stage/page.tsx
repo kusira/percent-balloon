@@ -40,7 +40,7 @@ export default function Home() {
                 fuga
             </div>
             {/* 問題文 */}
-            <p>問題</p>
+            <p>問題!</p>
             <ul>
                 {(() => {
                   const problem = problem_dict[quizNum];
