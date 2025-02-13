@@ -9,6 +9,26 @@ const problem_dict = [
       id: 1,
       question: "スマホのスクリーンタイムが8時間以上の人の比率",
       answer: 30
+  },
+  {
+    id: 2,
+    question: "きのこ派の比率",
+    answer: 60
+  },
+  {
+      id: 3,
+      question: "スマホのスクリーンタイムが1時間以上の人の比率",
+      answer: 30
+  },
+  {
+    id: 4,
+    question: "山派の比率",
+    answer: 60
+  },
+  {
+    id: 5,
+    question: "スマホのスクリーンタイムが2時間以上の人の比率",
+    answer: 30
   }
 ]
 
