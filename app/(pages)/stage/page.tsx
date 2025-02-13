@@ -25,8 +25,16 @@ export default function Home() {
   //問題順序生成、シャッフル実行、出題数のカウント
   let quizptn = Array.from({length:problem_dict.length},(_,i) => i+1);
   quizptn = shuffleArray(quizptn);
-  let quizNum=0;
+  const [quizNum, setQuizNum] = useState<number>(1);
 
+  const nextQuiz = () => {
+    if (quizNum < 5) {
+      const currentProblem = problem_dict[quizNum]; // 現在の問題を取得
+      setQuizNum(quizNum + 1);
+    }
+
+  };
+  
   
   return (
     <div>        
@@ -62,12 +70,14 @@ export default function Home() {
                 value={value}
               />
               <div className="">{value}</div>
-              <button className="inline-block ml-8 text-white px-3 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg">
-                決定
+              <button 
+              className="inline-block ml-8 text-white px-3 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg"
+              onClick={() => nextQuiz()}
+              >
+              決定
               </button>
+              <p>{quizNum}</p>
             </div>
-            
-            hoge
         </div>
       </div>
       {/* フッター */}
