@@ -11,6 +11,23 @@ export default function Home() {
   
   const [value, setValue] = useState<number>(50);
 
+  //配列シャッフル関数
+  const shuffleArray = (array:any) => {
+    const cloneArray = [...array]
+    for (let i = cloneArray.length - 1; i>=0; i--){
+      let rand = Math.floor(Math.random()*(i+1));//配列を並び替える
+      let tmpStorage=cloneArray[i]
+      cloneArray[i]=cloneArray[rand]
+      cloneArray[rand] = tmpStorage
+    }
+    return cloneArray
+  }
+  //問題順序生成、シャッフル実行、出題数のカウント
+  let quizptn = Array.from({length:problem_dict.length},(_,i) => i+1);
+  quizptn = shuffleArray(quizptn);
+  let quizNum=0;
+
+  
   return (
     <div>        
       {/* ヘッダー */}
@@ -26,8 +43,7 @@ export default function Home() {
             <p>問題</p>
             <ul>
                 {(() => {
-                  const randomIndex = Math.floor(Math.random() * problem_dict.length);
-                  const problem = problem_dict[randomIndex];
+                  const problem = problem_dict[quizNum];
                     return (
                     <li key={problem.id}>
                       {problem.question}
