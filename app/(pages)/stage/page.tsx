@@ -26,13 +26,14 @@ export default function Home() {
   }
 
   //問題順序生成、シャッフル実行、出題数のカウント
-  let quizptn = Array.from({length:problem_dict.length},(_,i) => i+1);
-  quizptn = shuffleArray(quizptn);
+  let quizPtn = Array.from({length:problem_dict.length},(_,i) => i+1);
+  quizPtn = shuffleArray(quizPtn);
+  //console.log(quizptn)
   const [quizNum, setQuizNum] = useState<number>(1);
 
   const nextQuiz = () => {
     if (quizNum < 5) {
-      const currentProblem = problem_dict[quizNum]; // 現在の問題を取得
+      const currentProblem = problem_dict[quizPtn[quizNum]]; // 現在の問題を取得
       setQuizNum(quizNum + 1);
     }else{
       router.push("/end")
@@ -74,10 +75,10 @@ export default function Home() {
                 fuga
             </div>
             {/* 問題文 */}
-            <p>問題!</p>
+            <p>問題{quizNum}</p>
             <ul>
                 {(() => {
-                  const problem = problem_dict[quizNum];
+                  const problem = problem_dict[quizPtn[quizNum]];
                     return (
                     <li key={problem.id}>
                       {problem.question}
@@ -102,7 +103,6 @@ export default function Home() {
               >
               決定
               </button>
-              <p>{quizNum}</p>
             </div>
         </div>
       </div>
