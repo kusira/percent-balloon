@@ -23,6 +23,7 @@ export default function Home() {
     }
     return cloneArray
   }
+  
   //問題順序生成、シャッフル実行、出題数のカウント
   let quizptn = Array.from({length:problem_dict.length},(_,i) => i+1);
   quizptn = shuffleArray(quizptn);
