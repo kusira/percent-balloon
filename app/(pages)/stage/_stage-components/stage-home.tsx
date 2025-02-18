@@ -7,10 +7,9 @@ import { useEffect, useState } from "react";
 import React from "react";
 import problem_dict from "@/app/components/questions";
 import { useRouter } from "next/navigation";
+import Showballoon from "@/app/components/showballoon";
 
-export default function StageHome({
-  quizPtn
-}:{
+export default function StageHome({ quizPtn }: {
   quizPtn: number[]
 }): React.JSX.Element {
 
@@ -58,6 +57,7 @@ export default function StageHome({
   return (
     <>
       {/* 画面を表示 */}
+      <Showballoon balloonNum={balloonNum}/>
       <p>問題{quizNum}</p>
       <div className="border-black border-2">
         {/* 問題文 */}
