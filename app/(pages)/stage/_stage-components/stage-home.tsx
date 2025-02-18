@@ -24,10 +24,10 @@ export default function StageHome({ quizPtn }: {
   const [quizNum, setQuizNum] = useState<number>(0);
 
   const nextQuiz = () => {
-    if (quizNum < 5) {
+    if (quizNum < 4) {
       const currentProblem = problem_dict[quizPtn[quizNum]]; // 現在の問題を取得
       setQuizNum(quizNum + 1);
-      console.log(quizNum)//ここを消したら動きません
+      //console.log(quizNum);
     } else {
       document.cookie = "gameCleared=true; path=/; max-age=3600"
       router.push("/end")
