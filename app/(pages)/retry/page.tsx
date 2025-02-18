@@ -4,30 +4,18 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
-      <div className="bg-[#e8f2f7] flex flex-col items-center justify-center">
-        {/* ヘッダー */}
-				<Header />
-
-        {/* メインコンテンツ */}
-        <main className="mt-8 px-8 text-center">
-          {/* msg */}
-          <h2 className="text-5xl font-bold text-black mb-4">Never give up!!</h2>
-
-          {/* game-end-link */}
-          <a
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow mt-8 px-8 text-center">
+        <h2 className="text-5xl font-bold text-black mb-4">Never give up!!</h2>
+        <a
             href="./"
-            className="inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600"
-          >
-          Exit
-          </a>
-
-        </main>
-
-        {/* フッター */}
-				<Footer />
-      </div>
+            className="inline-block bg-blue-500 text-white py-2 px-8 rounded-lg hover:bg-blue-600 mt-4"
+            >
+            Exit
+        </a>
+      </main>
+      <Footer />
     </div>
-    
   );
 }
