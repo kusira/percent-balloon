@@ -11,7 +11,7 @@ export default function Home() {
         {/* メインコンテンツ */}
         <main className="flex-grow flex flex-col items-center mt-10 text-center">
           {/* ようこそメッセージ */}
-          <h2 className="text-3xl font-bold mb-4">ようこそ！</h2>
+          <h2 className="text-3xl font-bold text-black mb-4">ようこそ！</h2>
 
           {/* 説明文 */}
           <p className="text-lg text-gray-700 mb-8">
