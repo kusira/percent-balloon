@@ -26,8 +26,9 @@ export default function Home() {
   }
 
   //問題順序生成、シャッフル実行、出題数のカウント
-  let quizPtn = Array.from({length:problem_dict.length},(_,i) => i+1);
+  let quizPtn = Array.from({length:problem_dict.length-1},(_,i) => i+1);
   quizPtn = shuffleArray(quizPtn);
+  
   
   //ボタンを押したときの処理をまとめたもの
   

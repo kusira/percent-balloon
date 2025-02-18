@@ -12,7 +12,7 @@ export default function Home() {
         {/* メインコンテンツ */}
         <main className="mt-8 px-8 text-center">
           {/* msg */}
-          <h2 className="text-5xl font-bold mb-4">Never give up!!</h2>
+          <h2 className="text-5xl font-bold text-black mb-4">Never give up!!</h2>
 
           {/* game-end-link */}
           <a

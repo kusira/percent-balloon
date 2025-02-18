@@ -16,11 +16,11 @@ export default function StageHome({ quizPtn }: {
   const [value, setValue] = useState<number>(50);
   const [balloonNum, setBalloonNum] = useState<number>(100);
 
-
+  const router = useRouter();
 
 
   //console.log(quizptn)
-  const [quizNum, setQuizNum] = useState<number>(1);
+  const [quizNum, setQuizNum] = useState<number>(0);
 
   const nextQuiz = () => {
     if (quizNum < 5) {
@@ -31,25 +31,19 @@ export default function StageHome({ quizPtn }: {
     }
   };
 
-  //風船の管理
-  useEffect(() => {
-    console.log(balloonNum);
-  }, [balloonNum]);
-
   //風船の計算
   const balloonCalc = () => {
     const problem = problem_dict[quizPtn[quizNum]]
-    setBalloonNum(prev => prev - Math.abs(problem.answer - value));
+    const ballontmp = balloonNum - Math.abs(problem.answer - value)
+    if (ballontmp <= 0) {
+      router.push("/retry")
+    }else{
+      setBalloonNum(prev => balloonNum - Math.abs(problem.answer - value));
+    }
+  
   };
 
-  //ゲームオーバーのチェック
-  const router = useRouter();
-  useEffect(() => {
-    if (balloonNum <= 0) {
-      router.push("/retry")
-    }
-  }, [balloonNum, router])
-
+    
 
   //ボタンを押したときの処理をまとめたもの
 
@@ -58,7 +52,7 @@ export default function StageHome({ quizPtn }: {
     <>
       {/* 画面を表示 */}
       <Showballoon balloonNum={balloonNum}/>
-      <p>問題{quizNum}</p>
+      <p>問題{quizNum + 1}</p>
       <div className="border-black border-2">
         {/* 問題文 */}
         <ul>
