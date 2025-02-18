@@ -65,7 +65,6 @@ export default function StageHome({ quizPtn }: {
             return (
               <li key={problem.id}>
                 {problem.question}
-                (答え: {problem.answer}%)
               </li>
             );
           })()}
