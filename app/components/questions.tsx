@@ -107,40 +107,40 @@ const problem_dict = [
   }
 ]
 
-const probrem_log = [
-  {
-      num_of_question: 1,
-      id: null,
-      user_ans: null,
-      ans_diff: null,
-  },
-  {
-      num_of_question: 2,
-      id: null,
-      user_ans: null,
-      ans_diff: null,
-  },
-  {
-      num_of_question: 3,
-      id: null,
-      user_ans: null,
-      ans_diff: null,
-  },
-  {
-      num_of_question: 4,
-      id: null,
-      user_ans: null,
-      ans_diff: null,
-  },
-  {
-      num_of_question: 5,
-      id: null,
-      user_ans: null,
-      ans_diff: null,
-  },
-]
+// const probrem_log = [
+//   {
+//       num_of_question: 1,
+//       id: null,
+//       user_ans: null,
+//       ans_diff: null,
+//   },
+//   {
+//       num_of_question: 2,
+//       id: null,
+//       user_ans: null,
+//       ans_diff: null,
+//   },
+//   {
+//       num_of_question: 3,
+//       id: null,
+//       user_ans: null,
+//       ans_diff: null,
+//   },
+//   {
+//       num_of_question: 4,
+//       id: null,
+//       user_ans: null,
+//       ans_diff: null,
+//   },
+//   {
+//       num_of_question: 5,
+//       id: null,
+//       user_ans: null,
+//       ans_diff: null,
+//   },
+// ]
 
-export default problem_dict; probrem_log;
+export default problem_dict;
 
 /*
 import React, { useState } from "react";
