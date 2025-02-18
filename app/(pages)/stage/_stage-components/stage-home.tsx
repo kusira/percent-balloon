@@ -8,6 +8,7 @@ import React from "react";
 import problem_dict from "@/app/components/questions";
 import { useRouter } from "next/navigation";
 import Showballoon from "@/app/components/showballoon";
+import { request } from "http";
 
 export default function StageHome({ quizPtn }: {
   quizPtn: number[]
@@ -26,7 +27,9 @@ export default function StageHome({ quizPtn }: {
     if (quizNum < 5) {
       const currentProblem = problem_dict[quizPtn[quizNum]]; // 現在の問題を取得
       setQuizNum(quizNum + 1);
+      console.log(quizNum)//ここを消したら動きません
     } else {
+      document.cookie = "gameCleared=true; path=/; max-age=3600"
       router.push("/end")
     }
   };
@@ -36,6 +39,7 @@ export default function StageHome({ quizPtn }: {
     const problem = problem_dict[quizPtn[quizNum]]
     const ballontmp = balloonNum - Math.abs(problem.answer - value)
     if (ballontmp <= 0) {
+      document.cookie = "gameOvered=true; path=/; max-age=3600"
       router.push("/retry")
     }else{
       setBalloonNum(prev => balloonNum - Math.abs(problem.answer - value));
