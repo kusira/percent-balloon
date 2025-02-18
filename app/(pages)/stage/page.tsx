@@ -1,4 +1,4 @@
-"use client"
+
 import Image from "next/image";
 import Footer from "@/app/components/footer";
 import Header from "@/app/components/header";
@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 import React from "react";
 import problem_dict from "@/app/components/questions";
 import { useRouter } from "next/navigation";
+import StageHome from "@/app/(pages)/stage/(stage-components)/stage-home";
 
 export default function Home() {
   
-  const [value, setValue] = useState<number>(50);
-  const [balloonNum,setBalloonNum] = useState<number>(100);
+
 
   //配列シャッフル関数
   const shuffleArray = (array:any) => {
@@ -28,38 +28,7 @@ export default function Home() {
   //問題順序生成、シャッフル実行、出題数のカウント
   let quizPtn = Array.from({length:problem_dict.length},(_,i) => i+1);
   quizPtn = shuffleArray(quizPtn);
-  //console.log(quizptn)
-  const [quizNum, setQuizNum] = useState<number>(1);
-
-  const nextQuiz = () => {
-    if (quizNum < 5) {
-      const currentProblem = problem_dict[quizPtn[quizNum]]; // 現在の問題を取得
-      setQuizNum(quizNum + 1);
-    }else{
-      router.push("/end")
-    }
-  };
-
-  //風船の管理
-  useEffect(()=>{
-    console.log(balloonNum);
-  },[balloonNum]);
-
-  //風船の計算
-  const balloonCalc = () => {
-    const problem =problem_dict[quizNum]
-    setBalloonNum(prev => prev - Math.abs(problem.answer-value));
-  };
-
-  //ゲームオーバーのチェック
-  const router = useRouter();
-  useEffect(() => {
-    if (balloonNum <= 0){
-        router.push("/retry")
-    }
-  },[balloonNum,router])
-    
-
+  
   //ボタンを押したときの処理をまとめたもの
   
 
@@ -70,10 +39,11 @@ export default function Home() {
       <div className="flex flex-col min-h-screen bg-[#e8f2f7]">
         {/* メインコンテンツ */}
         <div className="mx-[20%] mt-8 text-black">
-            {/* 画面を表示 */}
-            <p>問題{quizNum}</p>
+            {/* server components にするために分離 */}
+            <StageHome quizPtn={quizPtn}/>
+            {/* <p>問題{quizNum}</p>
             <div className="border-black border-2">
-                {/* 問題文 */}
+            
               <ul>
                   {(() => {
                    const problem = problem_dict[quizPtn[quizNum]];
@@ -87,7 +57,7 @@ export default function Home() {
               </ul>
             </div>
             
-            {/* 解答欄 */}
+
             <div className="flex my-2">
              <input type="range"
                 id="range"
@@ -103,7 +73,7 @@ export default function Home() {
               >
               決定
               </button>
-            </div>
+            </div> */}
         </div>
       </div>
       {/* フッター */}
