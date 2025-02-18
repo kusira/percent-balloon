@@ -3,9 +3,10 @@ import Image from "next/image";
 import Footer from "@/app/components/footer";
 import Header from "@/app/components/header";
 import { isCryptoKey } from "util/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import problem_dict from "@/app/components/questions";
+import { useRouter } from "next/router";
 
 export default function Home() {
   
@@ -22,6 +23,7 @@ export default function Home() {
     }
     return cloneArray
   }
+  
   //問題順序生成、シャッフル実行、出題数のカウント
   let quizptn = Array.from({length:problem_dict.length},(_,i) => i+1);
   quizptn = shuffleArray(quizptn);
@@ -32,10 +34,34 @@ export default function Home() {
       const currentProblem = problem_dict[quizNum]; // 現在の問題を取得
       setQuizNum(quizNum + 1);
     }
-
   };
+
+  //風船の管理
+  const [balloonNum,setBalloonNum] = useState<number>(100);
+  useEffect(()=>{
+    console.log(balloonNum);
+  },[balloonNum]);
+
+  //風船の計算
+  const balloonCalc = () => {
+    setBalloonNum(prev => prev -value);
+  };
+
+  //ゲームオーバーのチェック
+  const Gamecomponent = ({balloonNum}:{balloonNum:number}) => {
+    const router = useRouter();
+    
+    useEffect(() => {
+      if (balloonNum <= 0){
+        router.push("/retry")
+      }
+    },[balloonNum,router])
+    return null
+  }
+
+  //ボタンを押したときの処理をまとめたもの
   
-  
+
   return (
     <div>        
       {/* ヘッダー */}
@@ -72,7 +98,7 @@ export default function Home() {
               <div className="">{value}</div>
               <button 
               className="inline-block ml-8 text-white px-3 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg"
-              onClick={() => nextQuiz()}
+              onClick={() => {balloonCalc(); Gamecomponent({balloonNum}); nextQuiz();}}
               >
               決定
               </button>
