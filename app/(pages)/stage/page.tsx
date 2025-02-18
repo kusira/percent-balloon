@@ -6,11 +6,12 @@ import { isCryptoKey } from "util/types";
 import { useEffect, useState } from "react";
 import React from "react";
 import problem_dict from "@/app/components/questions";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   
   const [value, setValue] = useState<number>(50);
+  const [balloonNum,setBalloonNum] = useState<number>(100);
 
   //配列シャッフル関数
   const shuffleArray = (array:any) => {
@@ -37,7 +38,6 @@ export default function Home() {
   };
 
   //風船の管理
-  const [balloonNum,setBalloonNum] = useState<number>(100);
   useEffect(()=>{
     console.log(balloonNum);
   },[balloonNum]);
@@ -49,16 +49,13 @@ export default function Home() {
   };
 
   //ゲームオーバーのチェック
-  const Gamecomponent = ({balloonNum}:{balloonNum:number}) => {
-    const router = useRouter();
-    
-    useEffect(() => {
-      if (balloonNum <= 0){
+  const router = useRouter();
+  useEffect(() => {
+    if (balloonNum <= 0){
         router.push("/retry")
-      }
-    },[balloonNum,router])
-    return null
-  }
+    }
+  },[balloonNum,router])
+    
 
   //ボタンを押したときの処理をまとめたもの
   
