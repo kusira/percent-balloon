@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import problem_dict from "@/app/components/questions";
 import { useRouter } from "next/navigation";
-import StageHome from "@/app/(pages)/stage/(stage-components)/stage-home";
+import StageHome from "@/app/(pages)/stage/_stage-components/stage-home";
 
 export default function Home() {
   
