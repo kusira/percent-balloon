@@ -39,7 +39,7 @@ export default function StageHome({
 
   //風船の計算
   const balloonCalc = () => {
-    const problem = problem_dict[quizNum]
+    const problem = problem_dict[quizPtn[quizNum]]
     setBalloonNum(prev => prev - Math.abs(problem.answer - value));
   };
 
