@@ -23,7 +23,7 @@ export default function Home() {
     }
     return cloneArray
   }
-  
+
   //問題順序生成、シャッフル実行、出題数のカウント
   let quizptn = Array.from({length:problem_dict.length},(_,i) => i+1);
   quizptn = shuffleArray(quizptn);
@@ -44,7 +44,8 @@ export default function Home() {
 
   //風船の計算
   const balloonCalc = () => {
-    setBalloonNum(prev => prev -value);
+    const problem =problem_dict[quizNum]
+    setBalloonNum(prev => prev - Math.abs(problem.answer-value));
   };
 
   //ゲームオーバーのチェック
@@ -98,7 +99,7 @@ export default function Home() {
               <div className="">{value}</div>
               <button 
               className="inline-block ml-8 text-white px-3 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg"
-              onClick={() => {balloonCalc(); Gamecomponent({balloonNum}); nextQuiz();}}
+              onClick={() => {balloonCalc();  nextQuiz();}}
               >
               決定
               </button>
