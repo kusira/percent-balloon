@@ -34,6 +34,8 @@ export default function Home() {
     if (quizNum < 5) {
       const currentProblem = problem_dict[quizNum]; // 現在の問題を取得
       setQuizNum(quizNum + 1);
+    }else{
+      router.push("/end")
     }
   };
 
