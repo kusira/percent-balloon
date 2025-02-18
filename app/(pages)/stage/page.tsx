@@ -71,22 +71,22 @@ export default function Home() {
         {/* メインコンテンツ */}
         <div className="mx-[20%] mt-8 text-black">
             {/* 画面を表示 */}
-            <div className="border-black border-2">
-                fuga
-            </div>
-            {/* 問題文 */}
             <p>問題{quizNum}</p>
-            <ul>
-                {(() => {
-                  const problem = problem_dict[quizPtn[quizNum]];
-                    return (
-                    <li key={problem.id}>
-                      {problem.question}
-                      (答え: {problem.answer}%)
-                    </li>
+            <div className="border-black border-2">
+                {/* 問題文 */}
+              <ul>
+                  {(() => {
+                   const problem = problem_dict[quizPtn[quizNum]];
+                     return (
+                      <li key={problem.id}>
+                        {problem.question}
+                        (答え: {problem.answer}%)
+                     </li>
                     );
-                })()}
+                  })()}
               </ul>
+            </div>
+            
             {/* 解答欄 */}
             <div className="flex my-2">
              <input type="range"
